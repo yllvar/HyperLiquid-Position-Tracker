@@ -1,0 +1,9 @@
+data/crypto_data/BTC-1m-1000wks-data copy.csv
+data/crypto_data/btc_1min_train.csv
+.env
+data/crypto_data
+data/coinbase
+data/IB_data
+data/yahoo_daily
+data
+/data
