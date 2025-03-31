@@ -115,11 +115,6 @@ We welcome contributions! Please follow these steps:
 
 The maintainers are not responsible for any trading decisions made using this tool.
 
-## 📬 Support
-
-For issues or feature requests:
-- [Open a GitHub Issue](https://github.com/yllvar/HyperLiquid-Position-Tracker/issues)
-- Contact: [your-email@example.com]
 
 ## 📜 License
 
