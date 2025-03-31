@@ -1,133 +1,130 @@
 # HyperLiquid Position Tracker
 
-A Python-based tool for monitoring and analyzing positions on HyperLiquid DEX, with a focus on identifying positions near liquidation. This tool helps traders make informed decisions by providing real-time insights into market positions.
+![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## Features
+A comprehensive Python tool for real-time monitoring and analysis of positions on HyperLiquid DEX, with specialized features to identify positions approaching liquidation zones.
 
-- Real-time position tracking using official HyperLiquid SDK
-- Display of top long and short positions
-- Filtering by minimum position value
-- Coin-specific analysis
-- Automatic updates every minute
-- Highlighting of large positions (>$2M)
-- Detailed position information including:
-  - Entry prices
-  - Liquidation levels
-  - Leverage
-  - Unrealized PnL
-  - Position values
+## ✨ Key Features
 
-## Prerequisites
+- **Real-time Monitoring**: Continuous position tracking via HyperLiquid's official SDK
+- **Advanced Analytics**:
+  - Top long/short positions identification
+  - Coin-specific position breakdowns
+  - Large position highlighting (>$2M)
+- **Risk Metrics**:
+  - Liquidation price calculations
+  - Leverage analysis
+  - Unrealized PnL tracking
+- **Customizable Filters**:
+  - Minimum position value threshold
+  - Token-specific focus
+  - Top N positions display
 
+## 🚀 Quick Start
+
+### Prerequisites
 - Python 3.9+
-- pip (Python package installer)
+- pip package manager
 
-## Installation
+### Installation
 
-1. Clone the repository:
 ```bash
-git clone <your-repository-url>
-cd hyperliquid-position-tracker
-```
-
-2. Create and activate a virtual environment (recommended):
-```bash
+git clone https://github.com/yllvar/HyperLiquid-Position-Tracker.git
+cd HyperLiquid-Position-Tracker
 python -m venv .venv
-source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate
-```
-
-3. Install required packages:
-```bash
+source .venv/bin/activate  # Linux/Mac
+# .venv\Scripts\activate   # Windows
 pip install -r requirements.txt
 ```
 
-## Usage
-
 ### Basic Usage
 
-Run the script with default settings:
 ```bash
 python see_all_positions.py
 ```
 
-### Command Line Arguments
+## ⚙️ Advanced Configuration
 
-- `--min-value`: Set minimum position value to track (default: $25,000)
-- `--top-n`: Number of top positions to display (default: 30)
-- `--coin`: Filter positions by specific coin (e.g., BTC, ETH, SOL)
+### Command Line Options
 
-Example with arguments:
+| Argument       | Description                          | Default |
+|---------------|--------------------------------------|---------|
+| `--min-value` | Minimum position value to display    | 25,000  |
+| `--top-n`     | Number of positions to show         | 30      |
+| `--coin`      | Filter by specific coin (BTC,ETH...) | All     |
+
+Example:
+
 ```bash
-python see_all_positions.py --min-value 50000 --top-n 20 --coin BTC
+python see_all_positions.py --min-value 50000 --top-n 15 --coin BTC
 ```
 
-## Output Format
+### Configuration File
+Modify these constants in `see_all_positions.py`:
 
-The tool displays two main sections:
-1. Top Long Positions
-2. Top Short Positions
-
-Each position shows:
-- Position Value ($)
-- Entry Price
-- Unrealized PnL (%)
-- Leverage
-- Liquidation Price
-
-Positions above $2M are highlighted in magenta for easy identification.
-
-## Configuration
-
-Default constants in `see_all_positions.py`:
 ```python
-MIN_POSITION_VALUE = 25000
-TOP_N_POSITIONS = 30
-TOKENS_TO_ANALYZE = ['BTC', 'ETH', 'XRP', 'SOL']
-HIGHLIGHT_THRESHOLD = 2000000
+MIN_POSITION_VALUE = 25000      # USD threshold
+TOP_N_POSITIONS = 30            # Display limit
+TOKENS_TO_ANALYZE = ['BTC', 'ETH', 'XRP', 'SOL']  # Coin filter
+HIGHLIGHT_THRESHOLD = 2000000   # Large position alert level
 ```
 
-## Dependencies
+## 📊 Output Sample
 
-- hyperliquid-python-sdk
-- pandas
-- numpy
-- colorama
-- schedule
-- termcolor
+```
+=== Top Long Positions ===
+[$2.1M] BTC • 3.5x • Entry: $63,420
+  Liq: $58,100 • PnL: +12.3%
 
-## Error Handling
+[$850K] ETH • 5.2x • Entry: $3,420
+  Liq: $3,120 • PnL: -4.2%
 
-The script includes comprehensive error handling for:
-- API connection issues
-- Data processing errors
-- Invalid input parameters
+=== Top Short Positions ===
+[...]
+```
 
-Error messages are color-coded for better visibility.
+## 🛠 Technical Details
 
-## Contributing
+### Dependencies
+- `hyperliquid-python-sdk`: Official HyperLiquid API interface
+- `pandas`: Data processing and analysis
+- `colorama`: Cross-platform colored terminal text
+- `schedule`: Periodic task execution
 
+### Error Handling
+- API connection retries
+- Data validation checks
+- Graceful failure modes
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch 
+3. Commit your changes
+4. Push to the branch 
 5. Open a Pull Request
 
-## License
+## ⚠️ Important Disclaimer
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+**This software is provided for educational and informational purposes only.** Trading involves substantial risk of loss and is not suitable for every investor. Always:
+- Conduct your own research
+- Understand the risks involved
+- Never trade with funds you cannot afford to lose
 
-## Disclaimer
+The maintainers are not responsible for any trading decisions made using this tool.
 
-This tool is for informational purposes only. Do not make trading decisions solely based on this information. Always perform your own research and risk assessment.
+## 📬 Support
 
-## Support
+For issues or feature requests:
+- [Open a GitHub Issue](https://github.com/yllvar/HyperLiquid-Position-Tracker/issues)
+- Contact: [your-email@example.com]
 
-For support, please open an issue in the GitHub repository or contact the maintainers.
+## 📜 License
 
-## Acknowledgments
-
-- HyperLiquid team for providing the Python SDK
-- Contributors and users of this tool
+MIT License - See [LICENSE](LICENSE) for full text.
 
 ---
-Made with ❤️ for the HyperLiquid community
+
+🛠 Built with Python • 📈 For HyperLiquid traders • 🚀 By the DeFi community
